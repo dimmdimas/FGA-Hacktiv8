@@ -19,6 +19,6 @@ func main() {
 
 	fmt.Println("Jumlah kemunculan huruf:")
 	for k, v := range count {
-		fmt.Printf("%s: %d\n", k, v)
+		fmt.Printf("[ %s: %d ]", k, v)
 	}
 }
