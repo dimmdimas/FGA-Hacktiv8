@@ -1,41 +1,24 @@
 package main
 
-import "fmt"
-
-type MenghitungHuruf struct {
-	huruf  string
-	jumlah int
-}
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
-	input := "selamat malam"
+	kalimat := "selamat malam"
+	huruf := strings.Split(kalimat, "")
+	count := make(map[string]int)
 
-	for i := 0; i < len(input); i++ {
-		fmt.Printf("%c \n", input[i])
-	}
-
-	var hitung = [13]MenghitungHuruf{
-		{"s", 0},
-		{"e", 0},
-		{"l", 0},
-		{"a", 0},
-		{"m", 0},
-		{"t", 0},
-		{" ", 0},
-	}
-
-	for i := 0; i < len(input); i++ {
-
-		for u := 0; u < len(input); u++ {
-			if hitung[u].huruf == string(input[i]) {
-				hitung[u].jumlah = hitung[u].jumlah + 1
-				continue
-			}
+	for _, h := range huruf {
+		if h != "" {
+			fmt.Println(h)
+			count[h]++
 		}
-
 	}
 
-	for _, a := range hitung {
-		fmt.Printf("%+v\n", a)
+	fmt.Println("Jumlah kemunculan huruf:")
+	for k, v := range count {
+		fmt.Printf("%s: %d\n", k, v)
 	}
 }
