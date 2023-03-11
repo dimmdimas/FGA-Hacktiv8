@@ -2,23 +2,26 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 func main() {
 	kalimat := "selamat malam"
-	huruf := strings.Split(kalimat, "")
-	count := make(map[string]int)
+	hitung := make(map[string]int)
 
-	for _, h := range huruf {
+	for _, char := range kalimat {
+
+		// fmt.Printf("%T ", char)
+
+		h := string(char)
+
+		// fmt.Printf("%T", h)
+
+		fmt.Println(h)
+
 		if h != "" {
-			fmt.Println(h)
-			count[h]++
+			hitung[h]++
 		}
 	}
 
-	fmt.Println("Jumlah kemunculan huruf:")
-	for k, v := range count {
-		fmt.Printf("[ %s: %d ]", k, v)
-	}
+	fmt.Println(hitung)
 }
